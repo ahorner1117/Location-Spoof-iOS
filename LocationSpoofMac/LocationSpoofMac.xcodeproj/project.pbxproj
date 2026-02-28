@@ -14,6 +14,7 @@
 		8D19D0D727CD29CFD9114257 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A607AF66A4984BA088801BA /* ContentView.swift */; };
 		9FA6A7191DF65397CBB4043B /* DeviceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9356A7F012A80B3D1FE1EF /* DeviceServiceTests.swift */; };
 		A3E60F663A4243651E515592 /* SpoofMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F4550B866B1F15621F1155 /* SpoofMessage.swift */; };
+		DA79DFF8A366A4E57E85EA30 /* CommandHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC8D9C82FE693C1E431596 /* CommandHandler.swift */; };
 		DF95DC8BF81F51D98C05B1C2 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B5DAB176B1487487CBBB8 /* DeviceService.swift */; };
 		F1D394D33BB33F8B973A3A48 /* BonjourServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A030436D02312CBA7CAC5B7 /* BonjourServer.swift */; };
 		F47D6F9C91A8721DCE9A70BE /* LocationSpoofMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727B43C1769FC016C146F38 /* LocationSpoofMacApp.swift */; };
@@ -42,6 +43,7 @@
 		9A607AF66A4984BA088801BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9C1B5DAB176B1487487CBBB8 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 		D5F4550B866B1F15621F1155 /* SpoofMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofMessage.swift; sourceTree = "<group>"; };
+		DAFC8D9C82FE693C1E431596 /* CommandHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandHandler.swift; sourceTree = "<group>"; };
 		F53BED6CD90C625C10BF7DE9 /* LocationSpoofMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationSpoofMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -50,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				2A030436D02312CBA7CAC5B7 /* BonjourServer.swift */,
+				DAFC8D9C82FE693C1E431596 /* CommandHandler.swift */,
 				9C1B5DAB176B1487487CBBB8 /* DeviceService.swift */,
 			);
 			path = Services;
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1D394D33BB33F8B973A3A48 /* BonjourServer.swift in Sources */,
+				DA79DFF8A366A4E57E85EA30 /* CommandHandler.swift in Sources */,
 				8D19D0D727CD29CFD9114257 /* ContentView.swift in Sources */,
 				DF95DC8BF81F51D98C05B1C2 /* DeviceService.swift in Sources */,
 				F47D6F9C91A8721DCE9A70BE /* LocationSpoofMacApp.swift in Sources */,
@@ -343,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -436,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
