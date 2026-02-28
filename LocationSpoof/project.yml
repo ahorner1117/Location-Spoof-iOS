@@ -2,7 +2,7 @@ name: LocationSpoof
 options:
   bundleIdPrefix: com.locspoof
   deploymentTarget:
-    iOS: "16.0"
+    iOS: "17.0"
   xcodeVersion: "15.0"
   createIntermediateGroups: true
 
