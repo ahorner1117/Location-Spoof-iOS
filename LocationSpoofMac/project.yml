@@ -1,0 +1,48 @@
+name: LocationSpoofMac
+options:
+  bundleIdPrefix: com.locspoof
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+
+targets:
+  LocationSpoofMac:
+    type: application
+    platform: macOS
+    sources:
+      - LocationSpoofMac
+      - path: ../Shared
+        group: Shared
+    settings:
+      base:
+        INFOPLIST_FILE: LocationSpoofMac/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.locspoof.LocationSpoofMac
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        DEVELOPMENT_TEAM: ""
+    info:
+      path: LocationSpoofMac/Info.plist
+      properties:
+        CFBundleName: Location Spoof
+        CFBundleDisplayName: Location Spoof
+        LSUIElement: true
+    entitlements:
+      path: LocationSpoofMac/LocationSpoofMac.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.server: true
+        com.apple.security.network.client: true
+
+  LocationSpoofMacTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - LocationSpoofMacTests
+      - path: ../Shared
+        group: Shared
+    dependencies:
+      - target: LocationSpoofMac
+    settings:
+      base:
+        INFOPLIST_FILE: LocationSpoofMacTests/Info.plist

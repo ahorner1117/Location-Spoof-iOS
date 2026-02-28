@@ -1,0 +1,46 @@
+name: LocationSpoof
+options:
+  bundleIdPrefix: com.locspoof
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+
+targets:
+  LocationSpoof:
+    type: application
+    platform: iOS
+    sources:
+      - LocationSpoof
+      - path: ../Shared
+        group: Shared
+    settings:
+      base:
+        INFOPLIST_FILE: LocationSpoof/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.locspoof.LocationSpoof
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        DEVELOPMENT_TEAM: ""
+    info:
+      path: LocationSpoof/Info.plist
+      properties:
+        CFBundleName: Location Spoof
+        CFBundleDisplayName: Location Spoof
+        UILaunchScreen: {}
+        NSLocalNetworkUsageDescription: "Location Spoof needs local network access to communicate with the macOS companion app."
+        NSBonjourServices:
+          - _locspoof._tcp
+        NSLocationWhenInUseUsageDescription: "Location Spoof uses your location to show your current position on the map."
+
+  LocationSpoofTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - LocationSpoofTests
+      - path: ../Shared
+        group: Shared
+    dependencies:
+      - target: LocationSpoof
+    settings:
+      base:
+        INFOPLIST_FILE: LocationSpoofTests/Info.plist
