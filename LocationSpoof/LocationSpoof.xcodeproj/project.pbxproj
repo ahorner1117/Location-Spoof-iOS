@@ -10,9 +10,12 @@
 		080E318B2F65F0B3D3E9129D /* SpoofMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13540A1FDCDBB795E18D94FD /* SpoofMessage.swift */; };
 		1C9C423DEBB0DB497D877CA8 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E131B22C5FD6DAFC051078E /* PersistenceController.swift */; };
 		2DFFCD4EA34E13A86B358E44 /* BonjourClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CE294E334BE0525F7B3AA1 /* BonjourClient.swift */; };
+		335AC6F7361A4A3A97F394A8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B43464885EB2178CCD6CF7 /* MapView.swift */; };
+		5727EF48143728FBF934B578 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6D29CECB0385489F1F70AA /* FavoritesView.swift */; };
 		5FD79CE686DFFCF54E46083A /* SpoofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FC479E7F89A3F0C192527 /* SpoofResponse.swift */; };
-		60DDB0919B85816EB082F3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CDCA849143F475E2E9676 /* ContentView.swift */; };
 		70326525651C3DFD90699F3E /* LocationSpoofTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F378E486C421B9C2754CAA /* LocationSpoofTests.swift */; };
+		76DC16F641A9605E4837F9F1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C4174BB249B43476597B3 /* SettingsView.swift */; };
+		8829E9F17A819FC8069D4F93 /* LocationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F91DB62DD65F1360AEE657 /* LocationCardView.swift */; };
 		9766A2D89F5DBA90AEF45664 /* SpoofMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13540A1FDCDBB795E18D94FD /* SpoofMessage.swift */; };
 		A93A7F4FF187C85812F1C574 /* SavedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E4F8189FCDB3D5178E459B /* SavedLocation.swift */; };
 		B71E4B4C01513FE5581B3183 /* SpoofMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9409D7B4CF4C0C6A295AAD /* SpoofMessageTests.swift */; };
@@ -32,14 +35,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D8C4174BB249B43476597B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0E131B22C5FD6DAFC051078E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		13540A1FDCDBB795E18D94FD /* SpoofMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofMessage.swift; sourceTree = "<group>"; };
 		2CE69BBBC143AB4E716E1C3B /* LocationSpoof.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LocationSpoof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9409D7B4CF4C0C6A295AAD /* SpoofMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofMessageTests.swift; sourceTree = "<group>"; };
+		40B43464885EB2178CCD6CF7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		45E4F8189FCDB3D5178E459B /* SavedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocation.swift; sourceTree = "<group>"; };
-		603CDCA849143F475E2E9676 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		631485D9A0C69DA1E1F0E829 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		88F378E486C421B9C2754CAA /* LocationSpoofTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSpoofTests.swift; sourceTree = "<group>"; };
+		93F91DB62DD65F1360AEE657 /* LocationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCardView.swift; sourceTree = "<group>"; };
+		9E6D29CECB0385489F1F70AA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		AD4503822A8063156D1942C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B9619AC5EEFCB5116835C4AF /* LocationSpoofTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = LocationSpoofTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F966811A6027C8D1202A13 /* SpoofService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofService.swift; sourceTree = "<group>"; };
@@ -128,7 +134,10 @@
 		BBDC0BC5125A5575F644DD67 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				603CDCA849143F475E2E9676 /* ContentView.swift */,
+				9E6D29CECB0385489F1F70AA /* FavoritesView.swift */,
+				93F91DB62DD65F1360AEE657 /* LocationCardView.swift */,
+				40B43464885EB2178CCD6CF7 /* MapView.swift */,
+				0D8C4174BB249B43476597B3 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,10 +247,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DFFCD4EA34E13A86B358E44 /* BonjourClient.swift in Sources */,
-				60DDB0919B85816EB082F3C2 /* ContentView.swift in Sources */,
+				5727EF48143728FBF934B578 /* FavoritesView.swift in Sources */,
+				8829E9F17A819FC8069D4F93 /* LocationCardView.swift in Sources */,
 				DFE5F613150D18186259B2C3 /* LocationSpoofApp.swift in Sources */,
+				335AC6F7361A4A3A97F394A8 /* MapView.swift in Sources */,
 				1C9C423DEBB0DB497D877CA8 /* PersistenceController.swift in Sources */,
 				A93A7F4FF187C85812F1C574 /* SavedLocation.swift in Sources */,
+				76DC16F641A9605E4837F9F1 /* SettingsView.swift in Sources */,
 				080E318B2F65F0B3D3E9129D /* SpoofMessage.swift in Sources */,
 				F9BDEFB09E3999CB960CA76A /* SpoofResponse.swift in Sources */,
 				DFD364FAC77CD0B3495883A6 /* SpoofService.swift in Sources */,
@@ -353,7 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -449,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
