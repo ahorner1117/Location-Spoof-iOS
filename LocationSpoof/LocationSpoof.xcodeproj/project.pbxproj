@@ -22,6 +22,8 @@
 		DFD364FAC77CD0B3495883A6 /* SpoofService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F966811A6027C8D1202A13 /* SpoofService.swift */; };
 		DFE5F613150D18186259B2C3 /* LocationSpoofApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691697484A237A084FA2542 /* LocationSpoofApp.swift */; };
 		F9BDEFB09E3999CB960CA76A /* SpoofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FC479E7F89A3F0C192527 /* SpoofResponse.swift */; };
+		A2B3C4D5E6F7A8B9C0D1E2F3 /* RemoteSpoofClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B8C9D0E1F2 /* RemoteSpoofClient.swift */; };
+		B3C4D5E6F7A8B9C0D1E2F3A4 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A7B8C9D0E1F2A3 /* RemoteConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		D691697484A237A084FA2542 /* LocationSpoofApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSpoofApp.swift; sourceTree = "<group>"; };
 		F0CE294E334BE0525F7B3AA1 /* BonjourClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourClient.swift; sourceTree = "<group>"; };
 		F50FC479E7F89A3F0C192527 /* SpoofResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofResponse.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B8C9D0E1F2 /* RemoteSpoofClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSpoofClient.swift; sourceTree = "<group>"; };
+		B2C3D4E5F6A7B8C9D0E1F2A3 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -145,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				F0CE294E334BE0525F7B3AA1 /* BonjourClient.swift */,
+				A1B2C3D4E5F6A7B8C9D0E1F2 /* RemoteSpoofClient.swift */,
 				D0F966811A6027C8D1202A13 /* SpoofService.swift */,
 			);
 			path = Services;
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				0E131B22C5FD6DAFC051078E /* PersistenceController.swift */,
+				B2C3D4E5F6A7B8C9D0E1F2A3 /* RemoteConfig.swift */,
 				45E4F8189FCDB3D5178E459B /* SavedLocation.swift */,
 			);
 			path = Models;
@@ -240,6 +246,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DFFCD4EA34E13A86B358E44 /* BonjourClient.swift in Sources */,
+				A2B3C4D5E6F7A8B9C0D1E2F3 /* RemoteSpoofClient.swift in Sources */,
+				B3C4D5E6F7A8B9C0D1E2F3A4 /* RemoteConfig.swift in Sources */,
 				5727EF48143728FBF934B578 /* FavoritesView.swift in Sources */,
 				8829E9F17A819FC8069D4F93 /* LocationCardView.swift in Sources */,
 				DFE5F613150D18186259B2C3 /* LocationSpoofApp.swift in Sources */,

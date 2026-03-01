@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MenuBarView: View {
     @Bindable var handler: CommandHandler
+    @Bindable var httpServer: HTTPServer
 
     var body: some View {
         VStack(spacing: 12) {
@@ -37,6 +38,17 @@ struct MenuBarView: View {
                 Text(handler.isReady ? "pymobiledevice3 found" : "pymobiledevice3 not found")
                     .font(.caption)
                 Spacer()
+            }
+
+            if httpServer.isRunning, let port = httpServer.boundPort {
+                HStack {
+                    Image(systemName: "network")
+                        .foregroundStyle(.secondary)
+                    Text("Remote API: port \(port)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                }
             }
 
             if handler.isSpoofing, let lat = handler.currentLat, let lng = handler.currentLng {
@@ -75,6 +87,7 @@ struct MenuBarView: View {
         .padding()
         .onAppear {
             handler.start()
+            httpServer.start(handler: handler)
         }
     }
 

@@ -17,6 +17,7 @@
 		DA79DFF8A366A4E57E85EA30 /* CommandHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC8D9C82FE693C1E431596 /* CommandHandler.swift */; };
 		DF95DC8BF81F51D98C05B1C2 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B5DAB176B1487487CBBB8 /* DeviceService.swift */; };
 		F1D394D33BB33F8B973A3A48 /* BonjourServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A030436D02312CBA7CAC5B7 /* BonjourServer.swift */; };
+		C4D5E6F7A8B9C0D1E2F3A4B5 /* HTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4E5F6A7B8C9D0E1F2A3B4 /* HTTPServer.swift */; };
 		F47D6F9C91A8721DCE9A70BE /* LocationSpoofMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727B43C1769FC016C146F38 /* LocationSpoofMacApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		1727B43C1769FC016C146F38 /* LocationSpoofMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSpoofMacApp.swift; sourceTree = "<group>"; };
 		20FE79B540110C4AB3D540E2 /* SpoofResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofResponse.swift; sourceTree = "<group>"; };
 		2A030436D02312CBA7CAC5B7 /* BonjourServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourServer.swift; sourceTree = "<group>"; };
+		C3D4E5F6A7B8C9D0E1F2A3B4 /* HTTPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServer.swift; sourceTree = "<group>"; };
 		37C6528C3ED3EEF348D58F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		40E33BD8ED321346D5F4A5A1 /* LocationSpoofMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationSpoofMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A8BE9446CA6373B00EACCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 				2A030436D02312CBA7CAC5B7 /* BonjourServer.swift */,
 				DAFC8D9C82FE693C1E431596 /* CommandHandler.swift */,
 				9C1B5DAB176B1487487CBBB8 /* DeviceService.swift */,
+				C3D4E5F6A7B8C9D0E1F2A3B4 /* HTTPServer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				F1D394D33BB33F8B973A3A48 /* BonjourServer.swift in Sources */,
 				DA79DFF8A366A4E57E85EA30 /* CommandHandler.swift in Sources */,
 				DF95DC8BF81F51D98C05B1C2 /* DeviceService.swift in Sources */,
+				C4D5E6F7A8B9C0D1E2F3A4B5 /* HTTPServer.swift in Sources */,
 				F47D6F9C91A8721DCE9A70BE /* LocationSpoofMacApp.swift in Sources */,
 				1BB2BDD018E215B37B5EB8F2 /* MenuBarView.swift in Sources */,
 				414655C75BF0DCA5406CEE40 /* SpoofMessage.swift in Sources */,

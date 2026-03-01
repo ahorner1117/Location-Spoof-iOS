@@ -3,6 +3,7 @@ import SwiftUI
 @main
 struct LocationSpoofMacApp: App {
     @State private var handler = CommandHandler()
+    @State private var httpServer = HTTPServer(port: HTTPServer.defaultPort)
 
     init() {
         NSApplication.shared.setActivationPolicy(.accessory)
@@ -10,8 +11,8 @@ struct LocationSpoofMacApp: App {
 
     var body: some Scene {
         MenuBarExtra {
-            MenuBarView(handler: handler)
-                .frame(width: 300, height: 280)
+            MenuBarView(handler: handler, httpServer: httpServer)
+                .frame(width: 320, height: 320)
         } label: {
             Image(systemName: menuBarIcon)
         }

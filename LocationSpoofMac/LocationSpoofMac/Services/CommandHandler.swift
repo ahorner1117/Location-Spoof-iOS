@@ -83,4 +83,43 @@ final class CommandHandler {
             lastError = error.localizedDescription
         }
     }
+
+    // MARK: - HTTP API (same logic as Bonjour, returns response for remote clients)
+
+    @MainActor
+    func setLocationAPI(lat: Double, lng: Double) async -> SpoofResponse {
+        lastError = nil
+        do {
+            try await deviceService.setLocation(lat: lat, lng: lng)
+            isSpoofing = true
+            currentLat = lat
+            currentLng = lng
+            server.send(response: .ok(spoofing: true, lat: lat, lng: lng))
+            return .ok(spoofing: true, lat: lat, lng: lng)
+        } catch {
+            lastError = error.localizedDescription
+            return .error(error.localizedDescription)
+        }
+    }
+
+    @MainActor
+    func clearLocationAPI() async -> SpoofResponse {
+        lastError = nil
+        do {
+            try await deviceService.clearLocation()
+            isSpoofing = false
+            currentLat = nil
+            currentLng = nil
+            server.send(response: .ok(spoofing: false))
+            return .ok(spoofing: false)
+        } catch {
+            lastError = error.localizedDescription
+            return .error(error.localizedDescription)
+        }
+    }
+
+    /// Returns current status as a SpoofResponse (status "pong" with device name and spoofing state).
+    func statusResponse() -> SpoofResponse {
+        .pong(device: deviceName, spoofing: isSpoofing)
+    }
 }

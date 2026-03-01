@@ -2,9 +2,30 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var spoofService: SpoofService
+    @AppStorage(RemoteConfig.remoteMacAPIURLKey) private var remoteMacAPIURL = ""
 
     var body: some View {
         List {
+            Section("Remote access") {
+                TextField("Mac API URL (optional)", text: $remoteMacAPIURL)
+                    .textContentType(.URL)
+                    .autocapitalization(.none)
+                    .autocorrectionDisabled()
+                    .keyboardType(.URL)
+                    .onChange(of: remoteMacAPIURL) { _, _ in
+                        NotificationCenter.default.post(name: .remoteMacAPIURLDidChange, object: nil)
+                    }
+
+                if spoofService.isRemoteMode {
+                    Label("Using remote Mac API", systemImage: "network")
+                        .foregroundStyle(.green)
+                }
+
+                Text("Use when you're not on the same WiFi. Examples: Tailscale (http://100.x.x.x:8765), Cloudflare Tunnel (https://xxx.trycloudflare.com). Leave empty for local Bonjour.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
             Section("Connection") {
                 HStack {
                     Text("Status")
@@ -18,7 +39,14 @@ struct SettingsView: View {
                     }
                 }
 
-                if let name = spoofService.client.discoveredServiceName {
+                if spoofService.isRemoteMode {
+                    HStack {
+                        Text("Mode")
+                        Spacer()
+                        Text("Remote API")
+                            .foregroundStyle(.secondary)
+                    }
+                } else if let name = spoofService.client.discoveredServiceName {
                     HStack {
                         Text("Mac")
                         Spacer()
@@ -64,7 +92,7 @@ struct SettingsView: View {
                     setupStep("2", "Enable Developer Mode on iPhone:", "Settings > Privacy & Security > Developer Mode")
                     setupStep("3", "Pair iPhone with Mac via USB once")
                     setupStep("4", "Launch the Location Spoof menu bar app on Mac")
-                    setupStep("5", "Both devices must be on the same WiFi network")
+                    setupStep("5", "Same WiFi: use Bonjour. Elsewhere: set Mac API URL above and expose port 8765 via Tailscale or Cloudflare Tunnel.")
                 }
                 .font(.caption)
             }
