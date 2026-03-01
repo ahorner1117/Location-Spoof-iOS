@@ -10,6 +10,7 @@ final class SpoofService: ObservableObject {
     @Published var deviceName: String?
     @Published var lastError: String?
     @Published var isConnected = false
+    @Published var isLoading = false
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -33,11 +34,13 @@ final class SpoofService: ObservableObject {
 
     func setLocation(lat: Double, lng: Double) {
         lastError = nil
+        isLoading = true
         client.send(.set(lat: lat, lng: lng))
     }
 
     func clearLocation() {
         lastError = nil
+        isLoading = true
         client.send(.clear)
     }
 
@@ -46,6 +49,7 @@ final class SpoofService: ObservableObject {
     }
 
     private func handleResponse(_ response: SpoofResponse) {
+        isLoading = false
         switch response.status {
         case "ok":
             isSpoofing = response.spoofing ?? false

@@ -27,7 +27,15 @@ struct LocationCardView: View {
                         .foregroundStyle(.secondary)
                 }
 
-                if spoofService.isSpoofing {
+                if spoofService.isLoading {
+                    HStack(spacing: 8) {
+                        ProgressView()
+                        Text("Setting location...")
+                            .foregroundStyle(.secondary)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
+                } else if spoofService.isSpoofing {
                     Button {
                         spoofService.clearLocation()
                     } label: {
