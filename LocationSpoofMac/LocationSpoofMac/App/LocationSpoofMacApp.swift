@@ -1,9 +1,18 @@
 import SwiftUI
 
+final class AppServices {
+    let handler = CommandHandler()
+    let httpServer = HTTPServer(port: HTTPServer.defaultPort)
+
+    init() {
+        handler.start()
+        httpServer.start(handler: handler)
+    }
+}
+
 @main
 struct LocationSpoofMacApp: App {
-    @State private var handler = CommandHandler()
-    @State private var httpServer = HTTPServer(port: HTTPServer.defaultPort)
+    @State private var services = AppServices()
 
     init() {
         NSApplication.shared.setActivationPolicy(.accessory)
@@ -11,7 +20,7 @@ struct LocationSpoofMacApp: App {
 
     var body: some Scene {
         MenuBarExtra {
-            MenuBarView(handler: handler, httpServer: httpServer)
+            MenuBarView(handler: services.handler, httpServer: services.httpServer)
                 .frame(width: 320, height: 320)
         } label: {
             Image(systemName: menuBarIcon)
@@ -20,9 +29,9 @@ struct LocationSpoofMacApp: App {
     }
 
     private var menuBarIcon: String {
-        if handler.isSpoofing {
+        if services.handler.isSpoofing {
             return "location.fill"
-        } else if handler.server.isClientConnected {
+        } else if services.handler.server.isClientConnected {
             return "location"
         } else {
             return "location.slash"

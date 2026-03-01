@@ -85,10 +85,6 @@ struct MenuBarView: View {
             .keyboardShortcut("q")
         }
         .padding()
-        .onAppear {
-            handler.start()
-            httpServer.start(handler: handler)
-        }
     }
 
     private var statusIcon: String {
