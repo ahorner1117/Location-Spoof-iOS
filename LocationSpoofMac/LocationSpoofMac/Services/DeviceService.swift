@@ -25,13 +25,15 @@ final class DeviceService {
     }
 
     private static func findPymobiledevice() -> String {
+        let home = FileManager.default.homeDirectoryForCurrentUser.path
         let searchPaths = [
             "/opt/homebrew/bin/pymobiledevice3",
             "/usr/local/bin/pymobiledevice3",
-            "\(NSHomeDirectory())/.local/bin/pymobiledevice3",
-            "\(NSHomeDirectory())/Library/Python/3.11/bin/pymobiledevice3",
-            "\(NSHomeDirectory())/Library/Python/3.12/bin/pymobiledevice3",
-            "\(NSHomeDirectory())/Library/Python/3.13/bin/pymobiledevice3",
+            "\(home)/.local/bin/pymobiledevice3",
+            "\(home)/Library/Python/3.11/bin/pymobiledevice3",
+            "\(home)/Library/Python/3.12/bin/pymobiledevice3",
+            "\(home)/Library/Python/3.13/bin/pymobiledevice3",
+            "\(home)/Library/Python/3.14/bin/pymobiledevice3",
         ]
         for path in searchPaths {
             if FileManager.default.isExecutableFile(atPath: path) {
