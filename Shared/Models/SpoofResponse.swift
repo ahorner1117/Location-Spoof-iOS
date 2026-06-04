@@ -16,7 +16,7 @@ struct SpoofResponse: Codable {
         SpoofResponse(status: "error", spoofing: nil, lat: nil, lng: nil, message: message, device: nil)
     }
 
-    static func pong(device: String, spoofing: Bool) -> SpoofResponse {
-        SpoofResponse(status: "pong", spoofing: spoofing, lat: nil, lng: nil, message: nil, device: device)
+    static func pong(device: String, spoofing: Bool, lat: Double? = nil, lng: Double? = nil) -> SpoofResponse {
+        SpoofResponse(status: "pong", spoofing: spoofing, lat: lat, lng: lng, message: nil, device: device)
     }
 }

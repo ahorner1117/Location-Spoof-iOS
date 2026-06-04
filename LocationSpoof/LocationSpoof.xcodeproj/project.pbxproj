@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,11 +19,11 @@
 		9766A2D89F5DBA90AEF45664 /* SpoofMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13540A1FDCDBB795E18D94FD /* SpoofMessage.swift */; };
 		A93A7F4FF187C85812F1C574 /* SavedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E4F8189FCDB3D5178E459B /* SavedLocation.swift */; };
 		B71E4B4C01513FE5581B3183 /* SpoofMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9409D7B4CF4C0C6A295AAD /* SpoofMessageTests.swift */; };
+		C493D493E773EA61D9AEF3C8 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F18032EC7E7882EAEC9C53 /* RemoteConfig.swift */; };
 		DFD364FAC77CD0B3495883A6 /* SpoofService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F966811A6027C8D1202A13 /* SpoofService.swift */; };
 		DFE5F613150D18186259B2C3 /* LocationSpoofApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691697484A237A084FA2542 /* LocationSpoofApp.swift */; };
+		E0F986DDE7F1BCC627E4883A /* RemoteSpoofClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1424180B874C52651C39A /* RemoteSpoofClient.swift */; };
 		F9BDEFB09E3999CB960CA76A /* SpoofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FC479E7F89A3F0C192527 /* SpoofResponse.swift */; };
-		A2B3C4D5E6F7A8B9C0D1E2F3 /* RemoteSpoofClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B8C9D0E1F2 /* RemoteSpoofClient.swift */; };
-		B3C4D5E6F7A8B9C0D1E2F3A4 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A7B8C9D0E1F2A3 /* RemoteConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +40,12 @@
 		0D8C4174BB249B43476597B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0E131B22C5FD6DAFC051078E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		13540A1FDCDBB795E18D94FD /* SpoofMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofMessage.swift; sourceTree = "<group>"; };
-		2CE69BBBC143AB4E716E1C3B /* LocationSpoof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationSpoof.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CE69BBBC143AB4E716E1C3B /* LocationSpoof.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LocationSpoof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9409D7B4CF4C0C6A295AAD /* SpoofMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofMessageTests.swift; sourceTree = "<group>"; };
 		40B43464885EB2178CCD6CF7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		45E4F8189FCDB3D5178E459B /* SavedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocation.swift; sourceTree = "<group>"; };
+		56C1424180B874C52651C39A /* RemoteSpoofClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSpoofClient.swift; sourceTree = "<group>"; };
+		60F18032EC7E7882EAEC9C53 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		631485D9A0C69DA1E1F0E829 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		88F378E486C421B9C2754CAA /* LocationSpoofTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSpoofTests.swift; sourceTree = "<group>"; };
 		93F91DB62DD65F1360AEE657 /* LocationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCardView.swift; sourceTree = "<group>"; };
@@ -54,8 +56,6 @@
 		D691697484A237A084FA2542 /* LocationSpoofApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSpoofApp.swift; sourceTree = "<group>"; };
 		F0CE294E334BE0525F7B3AA1 /* BonjourClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourClient.swift; sourceTree = "<group>"; };
 		F50FC479E7F89A3F0C192527 /* SpoofResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofResponse.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6A7B8C9D0E1F2 /* RemoteSpoofClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSpoofClient.swift; sourceTree = "<group>"; };
-		B2C3D4E5F6A7B8C9D0E1F2A3 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -108,6 +108,7 @@
 		96E7676610BCBF4644894927 /* Location Spoof iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4CD091054DEFC1B8CA45F8D4 /* Shared */,
 			);
 			name = "Location Spoof iOS";
 			path = ..;
@@ -149,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F0CE294E334BE0525F7B3AA1 /* BonjourClient.swift */,
-				A1B2C3D4E5F6A7B8C9D0E1F2 /* RemoteSpoofClient.swift */,
+				56C1424180B874C52651C39A /* RemoteSpoofClient.swift */,
 				D0F966811A6027C8D1202A13 /* SpoofService.swift */,
 			);
 			path = Services;
@@ -159,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				0E131B22C5FD6DAFC051078E /* PersistenceController.swift */,
-				B2C3D4E5F6A7B8C9D0E1F2A3 /* RemoteConfig.swift */,
+				60F18032EC7E7882EAEC9C53 /* RemoteConfig.swift */,
 				45E4F8189FCDB3D5178E459B /* SavedLocation.swift */,
 			);
 			path = Models;
@@ -220,6 +221,11 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					D100EFD8954986592A53BDAF = {
+						DevelopmentTeam = "";
+					};
+				};
 			};
 			buildConfigurationList = 8E1F97E9B1DB758E53B40462 /* Build configuration list for PBXProject "LocationSpoof" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -231,6 +237,7 @@
 			);
 			mainGroup = 0416012233EB7E02961D5C3B;
 			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -246,13 +253,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DFFCD4EA34E13A86B358E44 /* BonjourClient.swift in Sources */,
-				A2B3C4D5E6F7A8B9C0D1E2F3 /* RemoteSpoofClient.swift in Sources */,
-				B3C4D5E6F7A8B9C0D1E2F3A4 /* RemoteConfig.swift in Sources */,
 				5727EF48143728FBF934B578 /* FavoritesView.swift in Sources */,
 				8829E9F17A819FC8069D4F93 /* LocationCardView.swift in Sources */,
 				DFE5F613150D18186259B2C3 /* LocationSpoofApp.swift in Sources */,
 				335AC6F7361A4A3A97F394A8 /* MapView.swift in Sources */,
 				1C9C423DEBB0DB497D877CA8 /* PersistenceController.swift in Sources */,
+				C493D493E773EA61D9AEF3C8 /* RemoteConfig.swift in Sources */,
+				E0F986DDE7F1BCC627E4883A /* RemoteSpoofClient.swift in Sources */,
 				A93A7F4FF187C85812F1C574 /* SavedLocation.swift in Sources */,
 				76DC16F641A9605E4837F9F1 /* SettingsView.swift in Sources */,
 				080E318B2F65F0B3D3E9129D /* SpoofMessage.swift in Sources */,
@@ -289,7 +296,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z6HV55Y4T6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LocationSpoof/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -308,7 +315,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z6HV55Y4T6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LocationSpoof/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

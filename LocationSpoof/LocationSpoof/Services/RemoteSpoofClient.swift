@@ -11,6 +11,13 @@ final class RemoteSpoofClient: ObservableObject {
 
     var onResponseReceived: ((SpoofResponse) -> Void)?
 
+    /// Polls the Mac's /status endpoint so connection state and the current
+    /// spoof location stay fresh, and so SpoofService can re-assert the spoof if
+    /// the Mac reports it has dropped (e.g. after a tunnel blip).
+    private let pollInterval: TimeInterval = 5
+    private let timerQueue = DispatchQueue(label: "RemoteSpoofClient.poll")
+    private var pollTimer: DispatchSourceTimer?
+
     init(baseURL: URL) {
         self.baseURL = baseURL
         let config = URLSessionConfiguration.default
@@ -19,12 +26,30 @@ final class RemoteSpoofClient: ObservableObject {
     }
 
     func startBrowsing() {
-        // No discovery; verify connection with a ping
+        // No discovery; verify connection with a ping, then poll periodically.
         performPing()
+        startPolling()
     }
 
     func stopBrowsing() {
+        stopPolling()
         isConnected = false
+    }
+
+    private func startPolling() {
+        stopPolling()
+        let timer = DispatchSource.makeTimerSource(queue: timerQueue)
+        timer.schedule(deadline: .now() + pollInterval, repeating: pollInterval)
+        timer.setEventHandler { [weak self] in
+            self?.performPing()
+        }
+        timer.resume()
+        pollTimer = timer
+    }
+
+    private func stopPolling() {
+        pollTimer?.cancel()
+        pollTimer = nil
     }
 
     func send(_ message: SpoofMessage) {

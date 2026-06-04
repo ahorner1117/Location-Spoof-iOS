@@ -7,6 +7,9 @@ final class AppServices {
     init() {
         handler.start()
         httpServer.start(handler: handler)
+        // Re-apply a previously active spoof after relaunch, and (re)start the
+        // keepalive loop that holds it in place.
+        Task { await handler.restoreIfNeeded() }
     }
 }
 

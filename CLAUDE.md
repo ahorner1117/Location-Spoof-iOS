@@ -23,6 +23,9 @@ xcodebuild -project LocationSpoofMac/LocationSpoofMac.xcodeproj -scheme Location
 xcodebuild test -project LocationSpoof/LocationSpoof.xcodeproj -scheme LocationSpoof -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16'
 xcodebuild test -project LocationSpoofMac/LocationSpoofMac.xcodeproj -scheme LocationSpoofMac
 
+# Run a single test class or method (-only-testing: Target/Class[/method])
+xcodebuild test -project LocationSpoof/LocationSpoof.xcodeproj -scheme LocationSpoof -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16' -only-testing:LocationSpoofTests/SpoofMessageTests
+
 # Launch everything (starts tunnel daemon, builds macOS app, opens iOS project)
 ./start.sh
 
@@ -53,6 +56,12 @@ iPhone (iOS App)                    Mac (Menu Bar App)
 - `SpoofMessage`: `{action: "set"/"clear"/"ping", lat?, lng?}`
 - `SpoofResponse`: `{status: "ok"/"error"/"pong", spoofing?, lat?, lng?, message?, device?}`
 
+**HTTP REST API** (`HTTPServer`, port 8765) — mirrors the Bonjour actions for remote/Tailscale clients:
+- `GET /status` (and `GET /`) → current `SpoofResponse` (status, spoofing, lat/lng).
+- `POST /set` with JSON body `{lat, lng}` → applies the spoof.
+- `POST /clear` → clears the spoof.
+- `GET /dashboard` → self-contained HTML control page (the `dashboardHTML` string), usable from any browser without the iOS app.
+
 **Connection routing:** `SpoofService.start()` checks for a configured remote URL (`RemoteConfig`). If set, uses `RemoteSpoofClient` (HTTP); otherwise uses `BonjourClient` (local Bonjour discovery).
 
 ## Key Files
@@ -68,6 +77,7 @@ iPhone (iOS App)                    Mac (Menu Bar App)
 | `LocationSpoofMac/Services/HTTPServer.swift` | Optional REST API for remote clients |
 | `Shared/Models/SpoofMessage.swift` | Shared request type |
 | `Shared/Models/SpoofResponse.swift` | Shared response type |
+| `scripts/remote-tunnel.py` | Standalone off-LAN helper (not yet wired into the app — see below) |
 
 ## Important Conventions
 
@@ -76,5 +86,8 @@ iPhone (iOS App)                    Mac (Menu Bar App)
 - **macOS app runs without sandbox** (`com.apple.security.app-sandbox: false`) to allow subprocess execution of pymobiledevice3.
 - **pymobiledevice3 timeout:** `DeviceService` uses a 10-second timeout because the `simulate-location set` command often hangs after successfully applying the spoof. An empty stdout after timeout is treated as success.
 - **pymobiledevice3 path:** DeviceService searches `~/.local/bin/pymobiledevice3` first (pipx install location), then falls back to `PATH`.
+- **Spoof persistence / keepalive:** The simulated location is a live DVT session, not stored on the device — it dies when the Mac↔device tunnel drops (e.g. phone leaves WiFi). `CommandHandler` tracks `desiredSpoofing` intent separately from `isSpoofing`, re-applies the location every 30s via a keepalive timer, and persists/restores state across relaunch. The iOS `SpoofService` persists intent and re-asserts the last location on reconnect; `RemoteSpoofClient` polls `/status` every 5s. Off-WiFi persistence requires Tailscale so the Mac can still reach the device. See `docs/remote-persistence.md`.
 - **Bonjour service type:** `_locspoof._tcp` — declared in iOS `Info.plist` and used by both apps for discovery.
+- **App Transport Security:** the iOS app sets `NSAppTransportSecurity → NSAllowsArbitraryLoads: true` so `RemoteSpoofClient` can reach the Mac's HTTP API over cleartext `http://<mac>:8765` (and Tailscale IPs). Without it, iOS blocks the request with "the resource could not be loaded… requires a secure connection." Bonjour mode uses a raw TCP socket and is unaffected. This lives in `LocationSpoof/project.yml` under `info.properties` (the source of truth) — editing the generated `Info.plist` directly is overwritten by `xcodegen generate`.
+- **Off-LAN tunnel is not yet integrated:** the app's `DeviceService` drives `simulate-location` via `tunneld` (USB/LAN only). `scripts/remote-tunnel.py` is a researched/standalone path that reaches the device over Tailscale by IP (`CoreDeviceTunnelProxy` + `--rsd`, iOS 17.4+) and holds the spoof on a keepalive — but it must be validated live before being wired into `DeviceService`. Full rationale and setup in `docs/remote-persistence.md`.
 - **SwiftUI + @Observable:** Both apps use the Observation framework (`@Observable` macro), not the older `ObservableObject`/`@Published` pattern.

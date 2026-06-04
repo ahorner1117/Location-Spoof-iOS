@@ -10,6 +10,11 @@ targets:
   LocationSpoof:
     type: application
     platform: iOS
+    # Generate a shared scheme so Run isn't greyed out ("No Scheme") after xcodegen regenerates the project.
+    scheme:
+      testTargets:
+        - LocationSpoofTests
+      gatherCoverageData: true
     sources:
       - LocationSpoof
       - path: ../Shared
@@ -31,6 +36,10 @@ targets:
         NSBonjourServices:
           - _locspoof._tcp
         NSLocationWhenInUseUsageDescription: "Location Spoof uses your location to show your current position on the map."
+        # Allow cleartext HTTP to the Mac's remote API (http://<mac>:8765, Tailscale, etc.).
+        # Same-WiFi Bonjour uses a raw TCP socket and is unaffected by ATS.
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
 
   LocationSpoofTests:
     type: bundle.unit-test
